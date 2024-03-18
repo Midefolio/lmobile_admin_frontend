@@ -152,50 +152,6 @@ const useApi = () => {
 
 
 
-  // Function to transfer funds
-  const transferFunds = async (repCode, amounts) => {
-    try {
-      const response = await axios.post(
-        'https://api.paystack.co/transfer',
-        {
-          source: 'balance',
-          recipient: repCode,
-          amount: parseInt(amounts) * 100, // Amount in kobo (multiply by 100)
-          currency: 'NGN', // Currency code (e.g., NGN for Nigerian Naira)
-        },
-        {
-          headers: {
-          },
-        }
-      );
-
-      if (response.data.status === 'success') {
-        setToast('Transfer successful');
-      } else {
-        setToast('Transfer failed');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setToast('Transfer failed');
-    }
-  };
-
-
-  const clearTransfer = async (params) => {
-   const repCode = await createRecipient(params);
-   if(repCode){
-    try {
-      const res =  await transferFunds(repCode, params?.amount)
-      return res;
-    } catch (error) {
-      console.log(error);
-    }
-    // return res;
-    
-   }
-  }
-
-
 
 
 
@@ -221,8 +177,6 @@ const useApi = () => {
 // fix handle errors well....
 return {
   requestMaker,
-  clearTransfer,
-  makeRequest
  };
 }
  
