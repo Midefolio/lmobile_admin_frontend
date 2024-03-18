@@ -131,7 +131,6 @@ const useApi = () => {
         },
         {
           headers: {
-            Authorization: `Bearer sk_test_ca92c5e859f8bbc674aebe8667368fc9727ade79`,
           },
         }
       );
@@ -166,7 +165,6 @@ const useApi = () => {
         },
         {
           headers: {
-            Authorization: `Bearer sk_test_ca92c5e859f8bbc674aebe8667368fc9727ade79`,
           },
         }
       );
